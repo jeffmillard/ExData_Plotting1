@@ -38,9 +38,9 @@ plot4 <- function() {
 	# 2 x 2 plots, rowwise
 	par(mfrow = c(2,2))
 	
-#	png(filename = "plot3.png",
-#	    width = 480, height = 480, units = "px", pointsize = 12,
-#	    bg = "white",  type = "quartz")
+	png(filename = "plot4.png",
+	    width = 480, height = 480, units = "px", pointsize = 12,
+	    bg = "white",  type = "quartz")
 	
 	# --------------------------------------------------------------
 	# top left plot (same as plot2)
@@ -80,7 +80,7 @@ plot4 <- function() {
      		ylab="Global_reactive_power", xlab="datetime")
 
 	# done with the plot; output the file by closing graphic device
-#	dev.off()
+	dev.off()
 	
-#	paste("File plot3.png created in directory", getwd(), sep=" ")
+	paste("File plot4.png created in directory", getwd(), sep=" ")
 }
