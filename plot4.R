@@ -35,28 +35,30 @@ plot4 <- function() {
 	# -----------------------------------------------------------------
 	# Open up the png graphics device and start plotting!
 	
-	# 2 x 2 plots, rowwise
-	par(mfrow = c(2,2))
+
 	
 	png(filename = "plot4.png",
 	    width = 480, height = 480, units = "px", pointsize = 12,
 	    bg = "white",  type = "quartz")
-	
+
+	# 2 x 2 plots, rowwise
+	par(mfrow = c(2,2))
+
 	# --------------------------------------------------------------
-	# top left plot (same as plot2)
+	# 1. top left plot (same as plot2)
 	# --------------------------------------------------------------
 	# make line plot (type="l") of Global_active_power vs DateTime
 	plot(DT$DateTime,DT$Global_active_power, type="l", 
      		ylab="Global Active Power (kilowatts)", xlab="")
 
 	# --------------------------------------------------------------
-	# top right plot (Voltage vs time)
+	# 2. top right plot (Voltage vs time)
 	# --------------------------------------------------------------
 	plot(DT$DateTime,DT$Voltage, type="l", 
      		ylab="Voltage", xlab="datetime")
 
 	# --------------------------------------------------------------
-	# bottom left plot (almost!! the same as plot 3)
+	# 3. bottom left plot (almost!! the same as plot 3)
 	# --------------------------------------------------------------
 	# make first part of plot (Sub metering 1)
 	plot(DT$DateTime,DT$Sub_metering_1, type="l", 
@@ -69,7 +71,7 @@ plot4 <- function() {
 	lines(DT$DateTime,DT$Sub_metering_3, col="blue")
 	
 	# add the legend to the upper right on plot
-	legend(x="topright", col=c("black", "blue", "red"), lty=1, box.lty=0,
+	legend(x="topright", col=c("black", "blue", "red"), lty=1, box.lwd=0,
 		 legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
 		 cex=0.6)
 
