@@ -1,5 +1,5 @@
 ## =============================================================================
-## Function:	plot1.R function(state, outcome)
+## Function:	plot4.R function()
 ## -----------------------------------------------------------------------------
 # Needs library(data.table)
 
@@ -35,8 +35,6 @@ plot4 <- function() {
 	# -----------------------------------------------------------------
 	# Open up the png graphics device and start plotting!
 	
-
-	
 	png(filename = "plot4.png",
 	    width = 480, height = 480, units = "px", pointsize = 12,
 	    bg = "white",  type = "quartz")
@@ -60,6 +58,10 @@ plot4 <- function() {
 	# --------------------------------------------------------------
 	# 3. bottom left plot (almost!! the same as plot 3)
 	# --------------------------------------------------------------
+	# Differences :
+	#	no box around legend
+	#	legend needs rescaling
+
 	# make first part of plot (Sub metering 1)
 	plot(DT$DateTime,DT$Sub_metering_1, type="l", 
 		ylab="Energy sub metering", xlab="")
@@ -71,9 +73,9 @@ plot4 <- function() {
 	lines(DT$DateTime,DT$Sub_metering_3, col="blue")
 	
 	# add the legend to the upper right on plot
-	legend(x="topright", col=c("black", "blue", "red"), lty=1, box.lwd=0,
+	legend(x="topright", col=c("black", "blue", "red"), lty=1, 
 		 legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-		 cex=0.6)
+		 bty="n", cex=0.6)
 
 	# --------------------------------------------------------------
 	# bottom right plot (Global reactive Power vs time)
